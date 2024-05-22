@@ -180,7 +180,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pn_sidebar;
     private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
-
+    
+    
+    //execute digunakan untuk menghubungkan antara Menu_item dan Form yang ada dengan Dashboard
     private void execute() {
         ImageIcon iconMenu = new ImageIcon(getClass().getResource("/icon/menu.png"));
         ImageIcon iconSelect = new ImageIcon(getClass().getResource("/icon/select.png"));
