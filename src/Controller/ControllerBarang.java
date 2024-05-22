@@ -9,6 +9,7 @@ import DAOInterface.InterfaceDAOBarang;
 import Model.Barang;
 import Model.TabelModelBarang;
 import View.FormMenu;
+import View.FormSelect;
 import java.awt.Frame;
 import java.util.List;
 
@@ -23,13 +24,25 @@ public class ControllerBarang {
         ifaceBarang = new DAOBarang(); 
     }
     
+    public ControllerBarang(FormSelect frmSelect){
+        this.frmSelect = frmSelect;
+        ifaceBarang = new DAOBarang(); 
+    }
+    
     public void isiTable(){
         lstBarang = ifaceBarang.getAll();
         TabelModelBarang tabelBarang = new TabelModelBarang(lstBarang);
         frmMenu.getTabelData().setModel(tabelBarang);
     }
     
+    public void isiTableSelect(){
+        lstBarang = ifaceBarang.getAll();
+        TabelModelBarang tabelBarang = new TabelModelBarang(lstBarang);
+        frmSelect.getTabelData().setModel(tabelBarang);
+    }
+    
     FormMenu frmMenu;
+    FormSelect frmSelect;
     InterfaceDAOBarang ifaceBarang;
     List<Barang> lstBarang;
 }

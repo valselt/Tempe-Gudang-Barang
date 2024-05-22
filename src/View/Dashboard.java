@@ -183,16 +183,27 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void execute() {
         ImageIcon iconMenu = new ImageIcon(getClass().getResource("/icon/menu.png"));
+        ImageIcon iconSelect = new ImageIcon(getClass().getResource("/icon/select.png"));
         ImageIcon iconHistory = new ImageIcon(getClass().getResource("/icon/history.png"));
         ImageIcon iconAdd = new ImageIcon(getClass().getResource("/icon/add.png"));
         ImageIcon iconDelete = new ImageIcon(getClass().getResource("/icon/delete.png"));
         ImageIcon iconUser = new ImageIcon(getClass().getResource("/icon/user.png"));
+        
         
         Menu_Item menuMenu = new Menu_Item(iconMenu, false, "Menu", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
                 pn_utama.add(new FormMenu());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+        Menu_Item menuSelect = new Menu_Item(iconSelect, false, "Pilih", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new FormSelect());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -234,7 +245,8 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         
-        addMenu(menuMenu, menuHistory, menuAdd, menuDelete, menuUser);
+        
+        addMenu(menuMenu, menuSelect, menuHistory, menuAdd, menuDelete, menuUser);
         
     }
     
