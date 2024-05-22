@@ -4,15 +4,15 @@
  */
 package DAOInterface;
 
-import Model.ModelBarang;
+import Model.Barang;
 import java.util.List;
 
 /**
  *
  * @author aldo1
  */
-public interface IDAOBarang {
+public interface InterfaceDAOBarang {
     // untuk read data
-    public List<ModelBarang> getAll();
+    public List<Barang> getAll();
     
 }

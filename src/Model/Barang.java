@@ -8,7 +8,7 @@ package Model;
  *
  * @author aldo1
  */
-public class ModelBarang {
+public class Barang {
 
     private String kode_barang;
     private String nama_barang;

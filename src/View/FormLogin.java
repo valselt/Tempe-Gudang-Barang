@@ -197,7 +197,7 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        FormUtama menu = new FormUtama();
+        Dashboard menu = new Dashboard();
         menu.setVisible(true);
         menu.revalidate();
         

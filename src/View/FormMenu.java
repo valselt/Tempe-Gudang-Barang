@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.ControllerBarang;
+import javax.swing.JTable;
+
 /**
  *
  * @author aldo1
@@ -15,6 +18,8 @@ public class FormMenu extends javax.swing.JPanel {
      */
     public FormMenu() {
         initComponents();
+        ctBarang = new ControllerBarang(this);
+        ctBarang.isiTable();
     }
 
     /**
@@ -29,7 +34,7 @@ public class FormMenu extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dataBarang = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelBarang = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -44,7 +49,7 @@ public class FormMenu extends javax.swing.JPanel {
 
         dataBarang.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -55,7 +60,7 @@ public class FormMenu extends javax.swing.JPanel {
                 "Kode Barang", "Nama Barang", "Satuan", "Harga", "Stok"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelBarang);
 
         jLabel4.setFont(new java.awt.Font("Humnst777 Lt BT", 0, 14)); // NOI18N
         jLabel4.setText("Nama Barang");
@@ -142,7 +147,12 @@ public class FormMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JTable tabelBarang;
     // End of variables declaration//GEN-END:variables
+    ControllerBarang ctBarang;
+
+    public JTable getTabelData() {
+        return tabelBarang;
+    }
 }

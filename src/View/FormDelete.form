@@ -37,7 +37,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="432" max="32767" attributes="0"/>
+              <EmptySpace pref="304" max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -72,7 +72,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="68" green="63" red="5f" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Histori"/>
+        <Property name="text" type="java.lang.String" value="Hapus Barang"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -40,7 +40,7 @@ public class FormDelete extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Humnst777 Lt BT", 1, 38)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(95, 99, 104));
-        jLabel3.setText("Histori");
+        jLabel3.setText("Hapus Barang");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,7 +49,7 @@ public class FormDelete extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
