@@ -4,6 +4,8 @@
  */
 package project_kasir;
 
+import Helper.Koneksi;
+
 /**
  *
  * @author aldo1
@@ -14,7 +16,7 @@ public class Project_Kasir {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Koneksi.getConnection();
     }
     
 }

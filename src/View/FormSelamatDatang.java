@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Main;
+package View;
 
 /**
  *
  * @author aldo1
  */
-public class selamatDatang extends javax.swing.JPanel {
+public class FormSelamatDatang extends javax.swing.JPanel {
 
     /**
      * Creates new form selamatDatang
      */
-    public selamatDatang() {
+    public FormSelamatDatang() {
         initComponents();
     }
 

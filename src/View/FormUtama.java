@@ -2,8 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Main;
+package View;
 
+import View.FormUser;
+import View.FormTambah;
+import View.FormSelamatDatang;
+import View.FormMenu;
+import View.FormHistori;
+import View.FormDelete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,12 +21,12 @@ import javax.swing.JFrame;
  *
  * @author aldo1
  */
-public class dashboard extends javax.swing.JFrame {
+public class FormUtama extends javax.swing.JFrame {
 
     /**
      * Creates new form dashboard
      */
-    public dashboard() {
+    public FormUtama() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
@@ -122,7 +128,7 @@ public class dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        pn_utama.add(new selamatDatang());
+        pn_utama.add(new FormSelamatDatang());
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_formWindowOpened
@@ -144,20 +150,21 @@ public class dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new dashboard().setVisible(true);
+                new FormUtama().setVisible(true);
             }
         });
     }
@@ -183,7 +190,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new form_menu());
+                pn_utama.add(new FormMenu());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -192,7 +199,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new history());
+                pn_utama.add(new FormHistori());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -201,7 +208,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new add());
+                pn_utama.add(new FormTambah());
                 pn_utama.repaint();
                 pn_utama.revalidate(); 
             }
@@ -210,7 +217,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new delete());
+                pn_utama.add(new FormDelete());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -219,7 +226,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new user());
+                pn_utama.add(new FormUser());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }

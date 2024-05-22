@@ -1,6 +1,4 @@
-package login;
-
-import Main.dashboard;
+package View;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,12 +9,12 @@ import Main.dashboard;
  *
  * @author aldo1
  */
-public class form_login extends javax.swing.JFrame {
+public class FormLogin extends javax.swing.JFrame {
     int xx, xy;
     /**
      * Creates new form form_login
      */
-    public form_login() {
+    public FormLogin() {
         initComponents();
     }
     
@@ -199,7 +197,7 @@ public class form_login extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        dashboard menu = new dashboard();
+        FormUtama menu = new FormUtama();
         menu.setVisible(true);
         menu.revalidate();
         
@@ -259,20 +257,21 @@ public class form_login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(form_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(form_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(form_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(form_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new form_login().setVisible(true);
+                new FormLogin().setVisible(true);
             }
         });
     }

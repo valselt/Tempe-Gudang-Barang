@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Main;
+package View;
 
 /**
  *
  * @author aldo1
  */
-public class user extends javax.swing.JPanel {
+public class FormHistori extends javax.swing.JPanel {
 
     /**
-     * Creates new form user
+     * Creates new form history
      */
-    public user() {
+    public FormHistori() {
         initComponents();
     }
 
@@ -26,16 +26,18 @@ public class user extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(676, 489));
+        setRequestFocusEnabled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/userHeader.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Humnst777 Lt BT", 1, 38)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(95, 99, 104));
+        jLabel1.setText("Histori");
 
-        jLabel3.setFont(new java.awt.Font("Humnst777 Lt BT", 1, 38)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(95, 99, 104));
-        jLabel3.setText("Pengguna");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/historyHeader.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,8 +45,8 @@ public class user extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
@@ -54,14 +56,14 @@ public class user extends javax.swing.JPanel {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addContainerGap(303, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
