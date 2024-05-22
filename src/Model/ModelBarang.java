@@ -16,21 +16,21 @@ public class ModelBarang {
     private Integer harga;
     private Integer stok;
     
-    public String getKode_barang() {
+    public String getKodeBarang() {
         return kode_barang;
     }
     
-    public void setKode_barang(String kode_barang) {
+    public void setKodeBarang(String kode_barang) {
         this.kode_barang = kode_barang;
     }
 
     
-    public String getNama_barang() {
+    public String getNamaBarang() {
         return nama_barang;
     }
 
     
-    public void setNama_barang(String nama_barang) {
+    public void setNamaBarang(String nama_barang) {
         this.nama_barang = nama_barang;
     }
 
