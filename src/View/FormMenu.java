@@ -69,6 +69,11 @@ public class FormMenu extends javax.swing.JPanel {
         jLabel6.setText("Stok");
 
         comboboxNamaBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxNamaBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxNamaBarangActionPerformed(evt);
+            }
+        });
 
         buttonTambahStok.setText("Tambah Stok");
         buttonTambahStok.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +140,10 @@ public class FormMenu extends javax.swing.JPanel {
     private void buttonTambahStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahStokActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonTambahStokActionPerformed
+
+    private void comboboxNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxNamaBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboboxNamaBarangActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

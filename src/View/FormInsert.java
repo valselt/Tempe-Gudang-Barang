@@ -161,6 +161,7 @@ public class FormInsert extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldKodeBarangActionPerformed
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
+        //ketika tombol simpan di klik
         ctBarang.insert();
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
@@ -181,6 +182,8 @@ public class FormInsert extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
     
+    
+    // getter textfield di FormInsert
     public JTextField getFieldKodeBarang(){
         return fieldKodeBarang;
     }

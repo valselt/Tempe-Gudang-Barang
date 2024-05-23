@@ -69,10 +69,38 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
+    @Override
+    public void updateSelect(Barang brg) {
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(updateSelect);
+            
+            statement.setString(1, brg.getNamaBarang());
+            statement.setString(2, brg.getSatuan());
+            statement.setInt(3, brg.getHarga());
+            statement.setInt(4, brg.getStok());
+            statement.setString(5, brg.getKodeBarang());
+            statement.execute();
+        }
+        catch(SQLException e){
+            System.out.println("Gagal Updatet Data!");
+        }
+        finally{
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Update Data!");
+            }
+        }
+    }
+   
     
     Connection con;
 
     // SQL Query
     String read = "select * from barang;";
     String insert = "insert into barang(kode_barang, nama_barang, satuan, harga, stok) values (?, ?, ?, ?, ?);";
+    String updateSelect = "update barang set nama_barang=?, satuan=?, harga=?, stok=? where kode_barang=?;";
+
+    
 }

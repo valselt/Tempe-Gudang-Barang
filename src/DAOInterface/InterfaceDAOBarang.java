@@ -16,5 +16,7 @@ public interface InterfaceDAOBarang {
     public List<Barang> getAll();
     // untuk insert data
     public void insert(Barang brg);
+    //untuk update data
+    public void updateSelect(Barang brg);
     
 }

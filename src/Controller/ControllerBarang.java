@@ -10,7 +10,7 @@ import Model.Barang;
 import Model.TabelModelBarang;
 import View.FormInsert;
 import View.FormMenu;
-import View.FormSelect;
+import View.FormSelectAndUpdate;
 import java.awt.Frame;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,7 +26,7 @@ public class ControllerBarang {
         ifaceBarang = new DAOBarang(); 
     }
     
-    public ControllerBarang(FormSelect frmSelect){
+    public ControllerBarang(FormSelectAndUpdate frmSelect){
         this.frmSelect = frmSelect;
         ifaceBarang = new DAOBarang(); 
     }
@@ -48,6 +48,15 @@ public class ControllerBarang {
         frmSelect.getTabelData().setModel(tabelBarang);
     }
     
+    public void resetSelect(){
+        frmSelect.getFieldKodeBarang().setText("");
+        frmSelect.getFieldNamaBarang().setText("");
+        frmSelect.getFieldSatuan().setText("");
+        frmSelect.getFieldHarga().setText("");
+        frmSelect.getFieldStok().setText("");
+        
+    }
+    
     public void insert(){
         Barang brg = new Barang();
         
@@ -57,14 +66,34 @@ public class ControllerBarang {
         brg.setHarga(Integer.parseInt(frmInsert.getFieldHarga().getText()));
         brg.setStok(Integer.parseInt(frmInsert.getFieldStok().getText()));
         ifaceBarang.insert(brg);
-        JOptionPane.showConfirmDialog(null, "Simpan Perubahan?");
+        JOptionPane.showMessageDialog(null, "Data Berhasil Dimasukkan kedalam Database!");
+    }
+    
+    public void isiFieldSelect (int row){
+        frmSelect.getFieldKodeBarang().setEnabled(false);
+        frmSelect.getFieldKodeBarang().setText(lstBarang.get(row).getKodeBarang());
+        frmSelect.getFieldNamaBarang().setText(lstBarang.get(row).getNamaBarang());
+        frmSelect.getFieldSatuan().setText(lstBarang.get(row).getSatuan());
+        frmSelect.getFieldHarga().setText(lstBarang.get(row).getHarga().toString());
+        frmSelect.getFieldStok().setText(lstBarang.get(row).getStok().toString());
+    }    
+    
+    public void updateSelect(){
+        Barang brg = new Barang();
         
+        brg.setNamaBarang(frmSelect.getFieldNamaBarang().getText());
+        brg.setSatuan(frmSelect.getFieldSatuan().getText());
+        brg.setHarga(Integer.parseInt(frmSelect.getFieldHarga().getText()));
+        brg.setStok(Integer.parseInt(frmSelect.getFieldStok().getText()));
+        brg.setKodeBarang(frmSelect.getFieldKodeBarang().getText());
+        ifaceBarang.updateSelect(brg);
+        JOptionPane.showMessageDialog(null, "Data berhasil diupdate!");
     }
     
     
     FormMenu frmMenu;
     FormInsert frmInsert;
-    FormSelect frmSelect;
+    FormSelectAndUpdate frmSelect;
     InterfaceDAOBarang ifaceBarang;
     List<Barang> lstBarang;
     

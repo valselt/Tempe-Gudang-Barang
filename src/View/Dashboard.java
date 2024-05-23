@@ -201,11 +201,11 @@ public class Dashboard extends javax.swing.JFrame {
                 pn_utama.revalidate();
             }
         });
-        Menu_Item menuSelect = new Menu_Item(iconSelect, false, "Select", new ActionListener() {
+        Menu_Item menuSelect = new Menu_Item(iconSelect, false, "Update", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new FormSelect());
+                pn_utama.add(new FormSelectAndUpdate());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
