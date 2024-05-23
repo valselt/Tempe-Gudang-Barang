@@ -14,9 +14,12 @@ import java.util.List;
 public interface InterfaceDAOBarang {
     // untuk read data
     public List<Barang> getAll();
+    public List<String> getDaftarKodeBarang();
     // untuk insert data
     public void insert(Barang brg);
-    //untuk update data
+    //untuk update data pada FormSelectAndUpdate
     public void updateSelect(Barang brg);
+    //untuk delete data pada FormDelete
+    public void deleteDelete(Barang brg);
     
 }

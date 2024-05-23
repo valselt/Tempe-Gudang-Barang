@@ -41,7 +41,7 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
 
         } catch (SQLException e) {
-            System.out.println("error");  // Added this line for error handling
+            System.out.println("Error Menampilkan dan Menghubungkan Data!");  // Added this line for error handling
         }
         return lstBarang;
     }
@@ -83,7 +83,7 @@ public class DAOBarang implements InterfaceDAOBarang {
             statement.execute();
         }
         catch(SQLException e){
-            System.out.println("Gagal Updatet Data!");
+            System.out.println("Gagal Update Data!");
         }
         finally{
             try {
@@ -93,7 +93,45 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
-   
+    
+    @Override
+    public void deleteDelete(Barang brg) {
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(deleteDelete);
+            statement.setString(1, brg.getKodeBarang());
+            statement.execute();
+        }
+        catch(SQLException e){
+            System.out.println("Gagal Delete Data!");
+        }
+        finally{
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Delete Data!");
+            }
+        }
+    }
+    
+    public List<String> getDaftarKodeBarang() {
+        List<String> daftarKodeBarang = new ArrayList<>();
+        try {
+            String query = "SELECT kode_barang FROM barang";
+            PreparedStatement statement = con.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                String kodeBarang = resultSet.getString("kode_barang");
+                daftarKodeBarang.add(kodeBarang);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return daftarKodeBarang;
+    }
+
+    
+  
     
     Connection con;
 
@@ -101,6 +139,9 @@ public class DAOBarang implements InterfaceDAOBarang {
     String read = "select * from barang;";
     String insert = "insert into barang(kode_barang, nama_barang, satuan, harga, stok) values (?, ?, ?, ?, ?);";
     String updateSelect = "update barang set nama_barang=?, satuan=?, harga=?, stok=? where kode_barang=?;";
+    String deleteDelete = "delete from barang where kode_barang=?;";
+
+    
 
     
 }

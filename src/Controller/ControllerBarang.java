@@ -8,11 +8,14 @@ import DAO.DAOBarang;
 import DAOInterface.InterfaceDAOBarang;
 import Model.Barang;
 import Model.TabelModelBarang;
+import View.FormDelete;
 import View.FormInsert;
 import View.FormMenu;
 import View.FormSelectAndUpdate;
 import java.awt.Frame;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,6 +36,10 @@ public class ControllerBarang {
     
     public ControllerBarang(FormInsert frmInsert){
         this.frmInsert = frmInsert;
+        ifaceBarang = new DAOBarang(); 
+    }
+    public ControllerBarang(FormDelete frmDelete){
+        this.frmDelete = frmDelete;
         ifaceBarang = new DAOBarang(); 
     }
     
@@ -58,6 +65,7 @@ public class ControllerBarang {
     }
     
     public void insert(){
+        
         Barang brg = new Barang();
         
         brg.setKodeBarang(frmInsert.getFieldKodeBarang().getText());
@@ -79,6 +87,7 @@ public class ControllerBarang {
     }    
     
     public void updateSelect(){
+        
         Barang brg = new Barang();
         
         brg.setNamaBarang(frmSelect.getFieldNamaBarang().getText());
@@ -89,10 +98,39 @@ public class ControllerBarang {
         ifaceBarang.updateSelect(brg);
         JOptionPane.showMessageDialog(null, "Data berhasil diupdate!");
     }
+
+    
+    public void isiComboboxKodeBarang(JComboBox<String> comboboxKodeBarang) {
+        comboboxKodeBarang.removeAllItems();
+        List<String> daftarKodeBarang = ifaceBarang.getDaftarKodeBarang(); // Panggil metode baru dari DAOBarang untuk mendapatkan daftar kode barang
+        for (String kodeBarang : daftarKodeBarang) {
+            comboboxKodeBarang.addItem(kodeBarang); // Tambahkan setiap kode barang ke dalam combobox
+        }
+    }
+
+
+     
+    public void deleteBarang(String kodeBarang) {
+        
+        Barang brg = new Barang();
+        
+        brg.setKodeBarang(frmDelete.getComboKodeBarang().getSelectedItem().toString());
+        ifaceBarang.deleteDelete(brg); // Memanggil metode penghapusan barang dari DAO
+        JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+    }
+    
+    //public void deleteDelete(){
+        
+        //Barang brg = new Barang();
+        //brg.setKodeBarang(frmDelete.getComboKodeBarang().getText());
+       // ifaceBarang.deleteDelete(brg);
+       // JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin menghapus data ini dari Database anda selamanya?");
+    //} 
     
     
     FormMenu frmMenu;
     FormInsert frmInsert;
+    FormDelete frmDelete;
     FormSelectAndUpdate frmSelect;
     InterfaceDAOBarang ifaceBarang;
     List<Barang> lstBarang;

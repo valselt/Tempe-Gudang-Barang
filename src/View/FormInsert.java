@@ -81,6 +81,10 @@ public class FormInsert extends javax.swing.JPanel {
             }
         });
 
+        buttonSimpan.setBackground(new java.awt.Color(52, 178, 51));
+        buttonSimpan.setFont(new java.awt.Font("Humnst777 BT", 1, 18)); // NOI18N
+        buttonSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/save.png"))); // NOI18N
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +119,7 @@ public class FormInsert extends javax.swing.JPanel {
                                     .addComponent(fieldSatuan)
                                     .addComponent(fieldHarga)
                                     .addComponent(fieldStok)))
-                            .addComponent(buttonSimpan))
+                            .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -146,9 +150,9 @@ public class FormInsert extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(fieldStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(buttonSimpan)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
