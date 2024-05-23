@@ -14,5 +14,7 @@ import java.util.List;
 public interface InterfaceDAOBarang {
     // untuk read data
     public List<Barang> getAll();
+    // untuk insert data
+    public void insert(Barang brg);
     
 }

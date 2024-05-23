@@ -9,14 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
 import DAOInterface.InterfaceDAOBarang;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author aldo1
  */
 public class DAOBarang implements InterfaceDAOBarang {
-
-    Connection con;
 
     public DAOBarang() {
         con = Koneksi.getConnection();
@@ -45,6 +46,33 @@ public class DAOBarang implements InterfaceDAOBarang {
         return lstBarang;
     }
 
+    @Override
+    public void insert(Barang brg) {
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(insert);
+            statement.setString(1, brg.getKodeBarang());
+            statement.setString(2, brg.getNamaBarang());
+            statement.setString(3, brg.getSatuan());
+            statement.setInt(4, brg.getHarga());
+            statement.setInt(5, brg.getStok());
+            statement.execute();
+        }
+        catch(SQLException e){
+            System.out.println("Gagal Menginput Data!");
+        }
+        finally{
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Menginput Data!");
+            }
+        }
+    }
+    
+    Connection con;
+
     // SQL Query
     String read = "select * from barang;";
+    String insert = "insert into barang(kode_barang, nama_barang, satuan, harga, stok) values (?, ?, ?, ?, ?);";
 }

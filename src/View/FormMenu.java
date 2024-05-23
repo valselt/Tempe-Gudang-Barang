@@ -37,10 +37,10 @@ public class FormMenu extends javax.swing.JPanel {
         tabelBarang = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboboxNamaBarang = new javax.swing.JComboBox<>();
         fieldStok = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonTambahStok = new javax.swing.JButton();
+        buttonKurangiStok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
@@ -68,16 +68,16 @@ public class FormMenu extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Humnst777 Lt BT", 0, 14)); // NOI18N
         jLabel6.setText("Stok");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxNamaBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("Tambah Stok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahStok.setText("Tambah Stok");
+        buttonTambahStok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonTambahStokActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Kurangi Stok");
+        buttonKurangiStok.setText("Kurangi Stok");
 
         jLabel1.setFont(new java.awt.Font("Humnst777 Lt BT", 1, 38)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(95, 99, 104));
@@ -94,16 +94,16 @@ public class FormMenu extends javax.swing.JPanel {
                         .addGroup(dataBarangLayout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(18, 18, 18)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboboxNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(84, 84, 84)
                             .addComponent(jLabel6)
                             .addGap(18, 18, 18)
                             .addComponent(fieldStok, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dataBarangLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonTambahStok)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(buttonKurangiStok))
                     .addComponent(jLabel1))
                 .addGap(0, 50, Short.MAX_VALUE))
         );
@@ -117,13 +117,13 @@ public class FormMenu extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1)
+                    .addComponent(comboboxNamaBarang)
                     .addComponent(jLabel6)
                     .addComponent(fieldStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonTambahStok)
+                    .addComponent(buttonKurangiStok))
                 .addGap(116, 116, 116))
         );
 
@@ -132,17 +132,17 @@ public class FormMenu extends javax.swing.JPanel {
         add(mainPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonTambahStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahStokActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonTambahStokActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonKurangiStok;
+    private javax.swing.JButton buttonTambahStok;
+    private javax.swing.JComboBox<String> comboboxNamaBarang;
     private javax.swing.JPanel dataBarang;
     private javax.swing.JTextField fieldStok;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

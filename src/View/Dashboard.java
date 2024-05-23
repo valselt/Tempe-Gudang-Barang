@@ -5,7 +5,7 @@
 package View;
 
 import View.FormUser;
-import View.FormTambah;
+import View.FormInsert;
 import View.FormSelamatDatang;
 import View.FormMenu;
 import View.FormHistori;
@@ -187,7 +187,7 @@ public class Dashboard extends javax.swing.JFrame {
         ImageIcon iconMenu = new ImageIcon(getClass().getResource("/icon/menu.png"));
         ImageIcon iconSelect = new ImageIcon(getClass().getResource("/icon/select.png"));
         ImageIcon iconHistory = new ImageIcon(getClass().getResource("/icon/history.png"));
-        ImageIcon iconAdd = new ImageIcon(getClass().getResource("/icon/add.png"));
+        ImageIcon iconInsert = new ImageIcon(getClass().getResource("/icon/add.png"));
         ImageIcon iconDelete = new ImageIcon(getClass().getResource("/icon/delete.png"));
         ImageIcon iconUser = new ImageIcon(getClass().getResource("/icon/user.png"));
         
@@ -201,11 +201,30 @@ public class Dashboard extends javax.swing.JFrame {
                 pn_utama.revalidate();
             }
         });
-        Menu_Item menuSelect = new Menu_Item(iconSelect, false, "Pilih", new ActionListener() {
+        Menu_Item menuSelect = new Menu_Item(iconSelect, false, "Select", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
                 pn_utama.add(new FormSelect());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+        
+        Menu_Item menuInsert = new Menu_Item(iconInsert, false, "Insert", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new FormInsert());
+                pn_utama.repaint();
+                pn_utama.revalidate(); 
+            }
+        });
+        Menu_Item menuDelete = new Menu_Item(iconDelete, false, "Delete", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new FormDelete());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -215,24 +234,6 @@ public class Dashboard extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
                 pn_utama.add(new FormHistori());
-                pn_utama.repaint();
-                pn_utama.revalidate();
-            }
-        });
-        Menu_Item menuAdd = new Menu_Item(iconAdd, false, "Tambah Barang", new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pn_utama.removeAll();
-                pn_utama.add(new FormTambah());
-                pn_utama.repaint();
-                pn_utama.revalidate(); 
-            }
-        });
-        Menu_Item menuDelete = new Menu_Item(iconDelete, false, "Hapus Barang", new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pn_utama.removeAll();
-                pn_utama.add(new FormDelete());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -248,7 +249,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         
         
-        addMenu(menuMenu, menuSelect, menuHistory, menuAdd, menuDelete, menuUser);
+        addMenu(menuMenu, menuSelect, menuInsert, menuDelete, menuHistory, menuUser);
         
     }
     
@@ -263,4 +264,5 @@ public class Dashboard extends javax.swing.JFrame {
         }
         pn_menu.revalidate();
     }
+   
 }
