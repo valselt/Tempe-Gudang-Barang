@@ -117,8 +117,8 @@ public class DAOBarang implements InterfaceDAOBarang {
     public List<String> getDaftarKodeBarang() {
         List<String> daftarKodeBarang = new ArrayList<>();
         try {
-            String query = "SELECT kode_barang FROM barang";
-            PreparedStatement statement = con.prepareStatement(query);
+            
+            PreparedStatement statement = con.prepareStatement(listKodeBarang);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 String kodeBarang = resultSet.getString("kode_barang");
@@ -129,6 +129,37 @@ public class DAOBarang implements InterfaceDAOBarang {
         }
         return daftarKodeBarang;
     }
+    
+    public List<String> getDaftarNamaBarang() {
+        List<String> daftarKodeBarang = new ArrayList<>();
+        try {
+            
+            PreparedStatement statement = con.prepareStatement(listNamaBarang);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                String kodeBarang = resultSet.getString("kode_barang");
+                daftarKodeBarang.add(kodeBarang);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return daftarKodeBarang;
+    }
+    
+    @Override
+    public boolean verifyLogin(String username, String password) {
+        
+        
+        try (PreparedStatement preparedStatement = con.prepareStatement(login)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next(); // returns true if a match is found
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     
   
@@ -136,11 +167,13 @@ public class DAOBarang implements InterfaceDAOBarang {
     Connection con;
 
     // SQL Query
+    String login = "SELECT * FROM user WHERE id_pengguna = ? AND password = ?;";
     String read = "select * from barang;";
     String insert = "insert into barang(kode_barang, nama_barang, satuan, harga, stok) values (?, ?, ?, ?, ?);";
     String updateSelect = "update barang set nama_barang=?, satuan=?, harga=?, stok=? where kode_barang=?;";
     String deleteDelete = "delete from barang where kode_barang=?;";
-
+    String listKodeBarang = "select kode_barang FROM barang;";
+    String listNamaBarang = "select nama_barang FROM barang;";
     
 
     

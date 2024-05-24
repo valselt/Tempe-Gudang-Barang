@@ -10,10 +10,9 @@ import Model.Barang;
 import Model.TabelModelBarang;
 import View.FormDelete;
 import View.FormInsert;
+import View.FormLogin;
 import View.FormMenu;
 import View.FormSelectAndUpdate;
-import java.awt.Frame;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -23,6 +22,11 @@ import javax.swing.JOptionPane;
  * @author aldo1
  */
 public class ControllerBarang {
+    
+    public ControllerBarang(FormLogin frmLogin) {
+        this.frmLogin = frmLogin;
+        ifaceBarang = new DAOBarang();
+    }
     
     public ControllerBarang(FormMenu frmMenu){
         this.frmMenu = frmMenu;
@@ -41,6 +45,10 @@ public class ControllerBarang {
     public ControllerBarang(FormDelete frmDelete){
         this.frmDelete = frmDelete;
         ifaceBarang = new DAOBarang(); 
+    }
+    
+    public boolean verifyLogin(String username, String password) {
+        return ifaceBarang.verifyLogin(username, password);
     }
     
     public void isiTable(){
@@ -127,7 +135,7 @@ public class ControllerBarang {
        // JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin menghapus data ini dari Database anda selamanya?");
     //} 
     
-    
+    FormLogin frmLogin;
     FormMenu frmMenu;
     FormInsert frmInsert;
     FormDelete frmDelete;

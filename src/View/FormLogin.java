@@ -1,5 +1,8 @@
 package View;
 
+import Controller.ControllerBarang;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,6 +19,7 @@ public class FormLogin extends javax.swing.JFrame {
      */
     public FormLogin() {
         initComponents();
+        ctBarang = new ControllerBarang(this);
     }
     
     void bersih(){
@@ -197,9 +201,21 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        Dashboard menu = new Dashboard();
-        menu.setVisible(true);
-        menu.revalidate();
+        String username = txtUser.getText();
+        String password = txtPassword.getText();
+        
+        boolean isValidLogin = ctBarang.verifyLogin(username, password);
+        
+        if (isValidLogin) {
+            JOptionPane.showMessageDialog(this, "Login berhasil!");
+            Dashboard menu = new Dashboard();
+            menu.setVisible(true);
+            menu.revalidate();
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Login gagal! Username atau password salah.");
+            bersih();
+        }
         
         dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -286,4 +302,5 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+    ControllerBarang ctBarang;
 }
