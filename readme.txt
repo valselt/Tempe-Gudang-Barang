@@ -3,5 +3,5 @@ Semarang, Indonesia
 
 Dibuat Menggunakan Apache NetBeans 21
 
-STRUKTUR DATABASE:
-Lihat StrukturDatabase.jpg
+-> STRUKTUR DATABASE: Lihat /pdf+gambar-penjelasan/StrukturDatabase.jpg
+-> PDF Penjelasan : Lihat /pdf+gambar-penjelasan
