@@ -5,7 +5,9 @@
 package View;
 
 import Controller.ControllerBarang;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +22,7 @@ public class FormMenu extends javax.swing.JPanel {
         initComponents();
         ctBarang = new ControllerBarang(this);
         ctBarang.isiTable();
+        ctBarang.isiComboboxNamaBarang(comboboxNamaBarang);
     }
 
     /**
@@ -83,6 +86,11 @@ public class FormMenu extends javax.swing.JPanel {
         });
 
         buttonKurangiStok.setText("Kurangi Stok");
+        buttonKurangiStok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKurangiStokActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Humnst777 Lt BT", 1, 38)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(95, 99, 104));
@@ -138,12 +146,20 @@ public class FormMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonTambahStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahStokActionPerformed
-        // TODO add your handling code here:
+        ctBarang.stokAdd();
+        ctBarang.isiTable();
+        ctBarang.resetFieldStok();
     }//GEN-LAST:event_buttonTambahStokActionPerformed
 
     private void comboboxNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxNamaBarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboboxNamaBarangActionPerformed
+
+    private void buttonKurangiStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKurangiStokActionPerformed
+        ctBarang.stokReduce();
+        ctBarang.isiTable();
+        ctBarang.resetFieldStok();
+    }//GEN-LAST:event_buttonKurangiStokActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -163,5 +179,12 @@ public class FormMenu extends javax.swing.JPanel {
 
     public JTable getTabelData() {
         return tabelBarang;
+    }
+    
+    public JTextField getFieldStok(){
+        return fieldStok;
+    }
+    public JComboBox getComboNamaBarang(){
+        return comboboxNamaBarang;
     }
 }

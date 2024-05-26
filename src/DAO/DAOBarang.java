@@ -95,6 +95,57 @@ public class DAOBarang implements InterfaceDAOBarang {
     }
     
     @Override
+    public void stokAdd(Barang brg){
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(stokAdd);
+            statement.setInt(1, brg.getStokSementara());
+            statement.setString(2, brg.getNamaBarang());
+            statement.executeUpdate(); // Gunakan executeUpdate untuk perintah yang mengubah data
+        }
+        catch(SQLException e){
+            System.out.println("Gagal Menambahkan Stok!");
+            e.printStackTrace(); // Print stack trace untuk melihat detail error
+        }
+        finally{
+            // Tutup statement di blok finally
+            try {
+                if(statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void stokReduce(Barang brg){
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(stokReduce);
+            statement.setInt(1, brg.getStokSementara());
+            statement.setString(2, brg.getNamaBarang());
+            statement.executeUpdate(); // Gunakan executeUpdate untuk perintah yang mengubah data
+        }
+        catch(SQLException e){
+            System.out.println("Gagal Mengurangi Stok!");
+            e.printStackTrace(); // Print stack trace untuk melihat detail error
+        }
+        finally{
+            // Tutup statement di blok finally
+            try {
+                if(statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    
+    @Override
     public void deleteDelete(Barang brg) {
         PreparedStatement statement = null;
         try {
@@ -131,19 +182,19 @@ public class DAOBarang implements InterfaceDAOBarang {
     }
     
     public List<String> getDaftarNamaBarang() {
-        List<String> daftarKodeBarang = new ArrayList<>();
+        List<String> daftarNamaBarang = new ArrayList<>();
         try {
             
             PreparedStatement statement = con.prepareStatement(listNamaBarang);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                String kodeBarang = resultSet.getString("kode_barang");
-                daftarKodeBarang.add(kodeBarang);
+                String namaBarang = resultSet.getString("nama_barang");
+                daftarNamaBarang.add(namaBarang);
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        return daftarKodeBarang;
+        return daftarNamaBarang;
     }
     
     @Override
@@ -174,6 +225,8 @@ public class DAOBarang implements InterfaceDAOBarang {
     String deleteDelete = "delete from barang where kode_barang=?;";
     String listKodeBarang = "select kode_barang FROM barang;";
     String listNamaBarang = "select nama_barang FROM barang;";
+    String stokAdd = "update barang set stok=stok+? where nama_barang=?;";
+    String stokReduce = "update barang set stok=stok-? where nama_barang=?;";
     
 
     

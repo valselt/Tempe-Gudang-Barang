@@ -9,13 +9,14 @@ package Model;
  * @author aldo1
  */
 public class Barang {
-
     private String kode_barang;
     private String nama_barang;
     private String satuan;
     private Integer harga;
     private Integer stok;
+    private Integer stokSementara;
     
+        
     public String getKodeBarang() {
         return kode_barang;
     }
@@ -62,6 +63,15 @@ public class Barang {
    
     public void setStok(Integer stok) {
         this.stok = stok;
+    }
+    
+    public Integer getStokSementara() {
+        return stokSementara;
+    }
+
+    
+    public void setStokSementara(Integer stokSementara) {
+        this.stokSementara = stokSementara;
     }
     
 }

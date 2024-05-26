@@ -113,8 +113,8 @@ public class FormDelete extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-        String kodeBarang = comboboxKodeBarang.getSelectedItem().toString(); // Mendapatkan kode barang dari JComboBox
-        ctBarang.deleteBarang(kodeBarang); // Memanggil metode penghapusan barang dari Controller
+        
+        ctBarang.deleteBarang(); // Memanggil metode penghapusan barang dari Controller
     }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void comboboxKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxKodeBarangActionPerformed

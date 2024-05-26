@@ -51,12 +51,40 @@ public class ControllerBarang {
         return ifaceBarang.verifyLogin(username, password);
     }
     
+    
+    
+    // menu + tambah kurangi stok
     public void isiTable(){
         lstBarang = ifaceBarang.getAll();
         TabelModelBarang tabelBarang = new TabelModelBarang(lstBarang);
         frmMenu.getTabelData().setModel(tabelBarang);
     }
     
+    public void stokAdd(){
+        Barang brg = new Barang();
+        
+        brg.setStokSementara(Integer.parseInt(frmMenu.getFieldStok().getText()));
+        brg.setNamaBarang(frmMenu.getComboNamaBarang().getSelectedItem().toString());
+        ifaceBarang.stokAdd(brg);
+        
+        JOptionPane.showMessageDialog(null, "Stok Berhasil Ditambahkan!");
+    }
+    
+    public void stokReduce(){
+        Barang brg = new Barang();
+        
+        brg.setStokSementara(Integer.parseInt(frmMenu.getFieldStok().getText()));
+        brg.setNamaBarang(frmMenu.getComboNamaBarang().getSelectedItem().toString());
+        ifaceBarang.stokReduce(brg);
+        
+        JOptionPane.showMessageDialog(null, "Stok Berhasil Dikurangin!");
+    }
+    public void resetFieldStok(){
+        frmMenu.getFieldStok().setText("");
+    }
+    
+    
+    //select and update
     public void isiTableSelect(){
         lstBarang = ifaceBarang.getAll();
         TabelModelBarang tabelBarang = new TabelModelBarang(lstBarang);
@@ -72,6 +100,17 @@ public class ControllerBarang {
         
     }
     
+    //delete
+    public void deleteBarang() {
+        
+        Barang brg = new Barang();
+        
+        brg.setKodeBarang(frmDelete.getComboKodeBarang().getSelectedItem().toString());
+        ifaceBarang.deleteDelete(brg); // Memanggil metode penghapusan barang dari DAO
+        JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+    }
+    
+    //insert barang
     public void insert(){
         
         Barang brg = new Barang();
@@ -94,6 +133,7 @@ public class ControllerBarang {
         frmSelect.getFieldStok().setText(lstBarang.get(row).getStok().toString());
     }    
     
+    //update barang
     public void updateSelect(){
         
         Barang brg = new Barang();
@@ -115,25 +155,20 @@ public class ControllerBarang {
             comboboxKodeBarang.addItem(kodeBarang); // Tambahkan setiap kode barang ke dalam combobox
         }
     }
+    
+    public void isiComboboxNamaBarang(JComboBox<String> comboboxNamaBarang){
+        comboboxNamaBarang.removeAllItems();
+        List<String> daftarNamaBarang = ifaceBarang.getDaftarNamaBarang();
+        for (String namaBarang : daftarNamaBarang){
+            comboboxNamaBarang.addItem(namaBarang);
+        }
+    }
 
 
      
-    public void deleteBarang(String kodeBarang) {
-        
-        Barang brg = new Barang();
-        
-        brg.setKodeBarang(frmDelete.getComboKodeBarang().getSelectedItem().toString());
-        ifaceBarang.deleteDelete(brg); // Memanggil metode penghapusan barang dari DAO
-        JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
-    }
     
-    //public void deleteDelete(){
-        
-        //Barang brg = new Barang();
-        //brg.setKodeBarang(frmDelete.getComboKodeBarang().getText());
-       // ifaceBarang.deleteDelete(brg);
-       // JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin menghapus data ini dari Database anda selamanya?");
-    //} 
+    
+    
     
     FormLogin frmLogin;
     FormMenu frmMenu;

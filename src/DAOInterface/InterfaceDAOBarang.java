@@ -20,6 +20,8 @@ public interface InterfaceDAOBarang {
     public void insert(Barang brg);
     //untuk update data pada FormSelectAndUpdate
     public void updateSelect(Barang brg);
+    public void stokAdd (Barang brg);
+    public void stokReduce (Barang brg);
     //untuk delete data pada FormDelete
     public void deleteDelete(Barang brg);
     boolean verifyLogin(String username, String password);
