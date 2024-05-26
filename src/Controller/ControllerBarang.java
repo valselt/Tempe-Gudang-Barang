@@ -8,12 +8,12 @@ import DAO.DAOBarang;
 import DAOInterface.InterfaceDAOBarang;
 import Model.Barang;
 import Model.TabelModelBarang;
-import View.Dashboard;
-import View.FormDelete;
-import View.FormInsert;
-import View.FormLogin;
-import View.FormMenu;
-import View.FormSelectAndUpdate;
+import ViewBarang.Dashboard;
+import ViewBarang.FormDelete;
+import ViewBarang.FormInsert;
+import ViewLoginRegister.FormLogin;
+import ViewBarang.FormMenu;
+import ViewBarang.FormSelectAndUpdate;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -48,21 +48,7 @@ public class ControllerBarang {
         ifaceBarang = new DAOBarang(); 
     }
     
-    
-    
-    
-    //proses login
-    public boolean verifyLogin(String username, String password) {
-        return ifaceBarang.verifyLogin(username, password);
-    }
-    
-    public void ensureLoginCondition(int conditionEnsure){
-        ifaceBarang.ensureLoginCondition(conditionEnsure);
-    }
-    public void updateLoginCondition(String username, int condition) {
-        ifaceBarang.updateLoginCondition(username, condition);
-    }
-    
+  
     
     // menu + tambah kurangi stok
     public void isiTable(){

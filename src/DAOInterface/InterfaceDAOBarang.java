@@ -12,10 +12,7 @@ import java.util.List;
  * @author aldo1
  */
 public interface InterfaceDAOBarang {
-    //login
-    boolean verifyLogin(String username, String password);
-    public void updateLoginCondition(String username, int condition);
-    public void ensureLoginCondition(int conditionEnsure);
+    
     // untuk read data
     public List<Barang> getAll();
     public List<String> getDaftarKodeBarang();
