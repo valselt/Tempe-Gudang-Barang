@@ -22,10 +22,7 @@ public class FormLogin extends javax.swing.JFrame {
         ctBarang = new ControllerBarang(this);
     }
     
-    void bersih(){
-        txtUser.setText("Username");
-        txtPassword.setText("Password");
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -203,10 +200,15 @@ public class FormLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username = txtUser.getText();
         String password = txtPassword.getText();
+        Integer conditionEnsure = 0;
+        Integer condition = 1;
         
         boolean isValidLogin = ctBarang.verifyLogin(username, password);
-        
+              
         if (isValidLogin) {
+            
+            ctBarang.ensureLoginCondition(conditionEnsure);
+            ctBarang.updateLoginCondition(username, condition);
             JOptionPane.showMessageDialog(this, "Login berhasil!");
             Dashboard menu = new Dashboard();
             menu.setVisible(true);
@@ -217,9 +219,14 @@ public class FormLogin extends javax.swing.JFrame {
             bersih();
         }
         
-        dispose();
+        //dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    
+    void bersih(){
+        txtUser.setText("Username");
+        txtPassword.setText("Password");
+    }
+    
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
         String username=txtUser.getText();
         if(username.equals("")| username.equals("Username")){

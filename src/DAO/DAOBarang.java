@@ -22,7 +22,44 @@ public class DAOBarang implements InterfaceDAOBarang {
     public DAOBarang() {
         con = Koneksi.getConnection();
     }
-
+    //login
+    @Override
+    public boolean verifyLogin(String username, String password) {
+        
+        
+        try (PreparedStatement statement = con.prepareStatement(login)) {
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next(); // returns true if a match is found
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    @Override
+    public void ensureLoginCondition(int conditionEnsure){
+        try {
+            PreparedStatement statement = con.prepareStatement(loginEnsure);
+            statement.setInt(1, conditionEnsure);
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Error Memverifikasi: " + e.getMessage());
+        }
+    }
+    @Override
+    public void updateLoginCondition(String username, int condition) {
+        try {
+            PreparedStatement statement = con.prepareStatement(loginCondition);
+            statement.setInt(1, condition);
+            statement.setString(2, username);
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Error Memverifikasi Login Menjadi 1");
+        }
+    }
+    //List Barang untuk Tabel
     @Override
     public List<Barang> getAll() {
         List<Barang> lstBarang = null;
@@ -45,7 +82,7 @@ public class DAOBarang implements InterfaceDAOBarang {
         }
         return lstBarang;
     }
-
+    //insert
     @Override
     public void insert(Barang brg) {
         PreparedStatement statement = null;
@@ -69,6 +106,8 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
+    
+    //update
     @Override
     public void updateSelect(Barang brg) {
         PreparedStatement statement = null;
@@ -93,7 +132,7 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
-    
+    //Tambah Stok pada FormMenu
     @Override
     public void stokAdd(Barang brg){
         PreparedStatement statement = null;
@@ -118,7 +157,8 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
-
+    
+    //Kurangi Stok pada FormMenu
     @Override
     public void stokReduce(Barang brg){
         PreparedStatement statement = null;
@@ -143,8 +183,9 @@ public class DAOBarang implements InterfaceDAOBarang {
             }
         }
     }
-
     
+   
+    //delete
     @Override
     public void deleteDelete(Barang brg) {
         PreparedStatement statement = null;
@@ -165,6 +206,7 @@ public class DAOBarang implements InterfaceDAOBarang {
         }
     }
     
+    //untuk menarik list kode_barang pada delete
     public List<String> getDaftarKodeBarang() {
         List<String> daftarKodeBarang = new ArrayList<>();
         try {
@@ -181,6 +223,8 @@ public class DAOBarang implements InterfaceDAOBarang {
         return daftarKodeBarang;
     }
     
+    
+    //untuk menarik list nama_barang pada FormMenu
     public List<String> getDaftarNamaBarang() {
         List<String> daftarNamaBarang = new ArrayList<>();
         try {
@@ -197,28 +241,12 @@ public class DAOBarang implements InterfaceDAOBarang {
         return daftarNamaBarang;
     }
     
-    @Override
-    public boolean verifyLogin(String username, String password) {
-        
-        
-        try (PreparedStatement preparedStatement = con.prepareStatement(login)) {
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next(); // returns true if a match is found
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    
-  
-    
     Connection con;
 
     // SQL Query
     String login = "SELECT * FROM user WHERE id_pengguna = ? AND password = ?;";
+    String loginEnsure = "UPDATE user SET login_condition = ?;";
+    String loginCondition = "UPDATE user SET login_condition = ? WHERE id_pengguna = ?";
     String read = "select * from barang;";
     String insert = "insert into barang(kode_barang, nama_barang, satuan, harga, stok) values (?, ?, ?, ?, ?);";
     String updateSelect = "update barang set nama_barang=?, satuan=?, harga=?, stok=? where kode_barang=?;";
