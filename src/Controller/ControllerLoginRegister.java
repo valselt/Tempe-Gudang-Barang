@@ -10,6 +10,7 @@ import Model.LoginRegister;
 import ViewBarang.Dashboard;
 import ViewLoginRegister.FormLogin;
 import ViewLoginRegister.FormRegister;
+import ViewLoginRegister.FormUser;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +25,10 @@ public class ControllerLoginRegister {
     }
     public ControllerLoginRegister(FormLogin frmLogin){
         this.frmLogin = frmLogin;
+        ifaceLoginRegister = new DAOLoginRegister();
+    }
+        public ControllerLoginRegister(FormUser frmUser){
+        this.frmUser = frmUser;
         ifaceLoginRegister = new DAOLoginRegister();
     }
     
@@ -107,9 +112,17 @@ public class ControllerLoginRegister {
         frmLogin.dispose();
     }
     
+    public void user(){
+        frmUser.getFieldIdPengguna().setText(ifaceLoginRegister.user().getId_pengguna());
+        frmUser.getFieldNamaPengguna().setText(ifaceLoginRegister.user().getNama_pengguna());
+        frmUser.getFieldNoTelepon().setText(String.valueOf(ifaceLoginRegister.user().getNo_telepon()));
+        frmUser.getFieldLevel().setText(ifaceLoginRegister.user().getLevel());
+    }
+    
     
     FormLogin frmLogin;
     FormRegister frmRegister;
+    FormUser frmUser;
     InterfaceDAOLoginRegister ifaceLoginRegister;
 
     

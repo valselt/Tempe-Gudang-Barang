@@ -4,7 +4,7 @@
  */
 package ViewBarang;
 
-import ViewBarang.FormUser;
+import ViewLoginRegister.FormUser;
 import ViewBarang.FormInsert;
 import ViewBarang.FormSelamatDatang;
 import ViewBarang.FormMenu;

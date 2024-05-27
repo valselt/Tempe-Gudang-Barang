@@ -13,5 +13,6 @@ public interface InterfaceDAOLoginRegister {
     public void ensureLoginCondition(LoginRegister lr);
     public void updateLoginCondition(LoginRegister lr);
     public String whichUser();
+    public LoginRegister user();
     
 }

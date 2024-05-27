@@ -111,6 +111,30 @@ public class DAOLoginRegister implements InterfaceDAOLoginRegister {
         }
     }
     
+    @Override
+    public LoginRegister user(){
+        try {
+            PreparedStatement statement = con.prepareStatement(which);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                LoginRegister lnRg = new LoginRegister();
+                lnRg.setId_pengguna(rs.getString("id_pengguna"));
+                lnRg.setNama_pengguna(rs.getString("nama_pengguna"));
+                lnRg.setNo_telepon(rs.getLong("no_telepon"));
+                lnRg.setLevel(rs.getString("level"));
+
+                return lnRg;
+            } else {
+                System.out.println("Error Mengambil Data Orang yang sedang Login");
+                return null;
+            }
+        } catch(SQLException e) {
+            System.out.println("Error Mengambil Data Orang yang sedang Login");
+            return null;
+        }
+    }
+
     Connection con;
     //SQL Query
     String check = "SELECT * FROM user WHERE id_pengguna = ?;";
