@@ -12,5 +12,6 @@ public interface InterfaceDAOLoginRegister {
     public boolean checkLogin(LoginRegister lr);
     public void ensureLoginCondition(LoginRegister lr);
     public void updateLoginCondition(LoginRegister lr);
+    public String whichUser();
     
 }

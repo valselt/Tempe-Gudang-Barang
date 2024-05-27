@@ -8,7 +8,7 @@ import ViewBarang.FormUser;
 import ViewBarang.FormInsert;
 import ViewBarang.FormSelamatDatang;
 import ViewBarang.FormMenu;
-import ViewBarang.FormHistori;
+import ViewHistori.FormHistori;
 import ViewBarang.FormDelete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

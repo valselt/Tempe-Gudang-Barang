@@ -5,6 +5,7 @@
 package ViewBarang;
 
 import Controller.ControllerBarang;
+import Controller.ControllerHistori;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +20,7 @@ public class FormInsert extends javax.swing.JPanel {
     public FormInsert() {
         initComponents();
         ctBarang = new ControllerBarang(this);
+        ctHistori = new ControllerHistori(this);
         
         
     }
@@ -167,6 +169,7 @@ public class FormInsert extends javax.swing.JPanel {
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         //ketika tombol simpan di klik
         ctBarang.insert();
+        ctHistori.historiInsert();
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
 
@@ -205,6 +208,7 @@ public class FormInsert extends javax.swing.JPanel {
     }
     
     ControllerBarang ctBarang;
+    ControllerHistori ctHistori;
     
 
 }

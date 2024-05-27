@@ -5,6 +5,7 @@
 package ViewBarang;
 
 import Controller.ControllerBarang;
+import Controller.ControllerHistori;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -20,9 +21,10 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
     public FormSelectAndUpdate() {
         initComponents();
         ctBarang = new ControllerBarang(this);
+        ctHistori = new ControllerHistori(this);
         ctBarang.isiTableSelect();
-        
         ctBarang.resetSelect();
+        
     }
 
     /**
@@ -193,6 +195,7 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
 
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
         ctBarang.updateSelect();
+        ctHistori.historiUpdate();
         ctBarang.isiTableSelect();
         ctBarang.resetSelect();
     }//GEN-LAST:event_buttonUpdateActionPerformed
@@ -242,4 +245,5 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
     }
     
     ControllerBarang ctBarang;
+    ControllerHistori ctHistori;
 }

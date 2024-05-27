@@ -72,7 +72,6 @@ public class ControllerLoginRegister {
     public void checkLogin(){
         LoginRegister lr = new LoginRegister();
         String username = frmLogin.getTxtUser().getText();
-        Integer condition = 1;
         lr.setId_pengguna(username);
         lr.setPassword(frmLogin.getTxtPassword().getText());
         
@@ -83,7 +82,7 @@ public class ControllerLoginRegister {
             
             
         } else {
-            register();
+            JOptionPane.showMessageDialog(null, "Username atau Password Salah!");
             FormLogin login = new FormLogin();
             login.setVisible(true);
             login.revalidate();

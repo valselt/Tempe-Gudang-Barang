@@ -26,8 +26,8 @@ public class DAOLoginRegister implements InterfaceDAOLoginRegister {
     public boolean checkAvailableIdPengguna(LoginRegister lr){
         try (PreparedStatement statement = con.prepareStatement(check)) {
             statement.setString(1, lr.getId_pengguna());
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet.next(); // returns true if a match is found
+            ResultSet rs = statement.executeQuery();
+            return rs.next(); // returns true if a match is found
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -93,6 +93,23 @@ public class DAOLoginRegister implements InterfaceDAOLoginRegister {
         }
     }
     
+    public String whichUser(){
+        try{
+            PreparedStatement statement = con.prepareStatement(which);
+            ResultSet rs = statement.executeQuery();
+            
+            if (rs.next()) {
+                String whichUser = rs.getString("id_pengguna");
+                return whichUser;
+            } else {
+                System.out.println("Error Mengambil Data Orang yang sedang Login");
+                return null;
+            }
+        }catch(SQLException e){
+            System.out.println("Error Mengambil Data Orang yang sedang Login");
+            return null;
+        }
+    }
     
     Connection con;
     //SQL Query
@@ -101,6 +118,7 @@ public class DAOLoginRegister implements InterfaceDAOLoginRegister {
     String loginEnsure = "UPDATE user SET login_condition = ?;";
     String loginCondition = "UPDATE user SET login_condition = ? WHERE id_pengguna = ?";
     String register = "INSERT INTO user(id_pengguna, nama_pengguna, password, no_telepon, level, login_condition) values (?, ?, ?, ?, ?, ?);";
+    String which = "SELECT * FROM user WHERE login_condition=1;";
 
     
 

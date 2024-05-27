@@ -5,6 +5,7 @@
 package ViewBarang;
 
 import Controller.ControllerBarang;
+import Controller.ControllerHistori;
 import Model.TabelModelBarang;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -21,6 +22,7 @@ public class FormDelete extends javax.swing.JPanel {
     public FormDelete() {
         initComponents();
         ctBarang = new ControllerBarang(this);
+        ctHistori = new ControllerHistori(this);
         ctBarang.isiComboboxKodeBarang(comboboxKodeBarang);
     }
 
@@ -114,7 +116,8 @@ public class FormDelete extends javax.swing.JPanel {
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         
-        ctBarang.deleteBarang(); // Memanggil metode penghapusan barang dari Controller
+        ctBarang.deleteBarang(); 
+        ctHistori.historiDelete();// Memanggil metode penghapusan barang dari Controller
     }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void comboboxKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxKodeBarangActionPerformed
@@ -137,5 +140,6 @@ public class FormDelete extends javax.swing.JPanel {
     }
     
     ControllerBarang ctBarang;
+    ControllerHistori ctHistori;
 
 }

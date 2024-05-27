@@ -5,6 +5,7 @@
 package ViewBarang;
 
 import Controller.ControllerBarang;
+import Controller.ControllerHistori;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -23,6 +24,8 @@ public class FormMenu extends javax.swing.JPanel {
         ctBarang = new ControllerBarang(this);
         ctBarang.isiTable();
         ctBarang.isiComboboxNamaBarang(comboboxNamaBarang);
+        ctHistori = new ControllerHistori(this);
+        
     }
 
     /**
@@ -147,6 +150,7 @@ public class FormMenu extends javax.swing.JPanel {
 
     private void buttonTambahStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahStokActionPerformed
         ctBarang.stokAdd();
+        ctHistori.historiTambahStok();
         ctBarang.isiTable();
         ctBarang.resetFieldStok();
     }//GEN-LAST:event_buttonTambahStokActionPerformed
@@ -157,6 +161,7 @@ public class FormMenu extends javax.swing.JPanel {
 
     private void buttonKurangiStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKurangiStokActionPerformed
         ctBarang.stokReduce();
+        ctHistori.historiKurangiStok();
         ctBarang.isiTable();
         ctBarang.resetFieldStok();
     }//GEN-LAST:event_buttonKurangiStokActionPerformed
@@ -176,6 +181,7 @@ public class FormMenu extends javax.swing.JPanel {
     private javax.swing.JTable tabelBarang;
     // End of variables declaration//GEN-END:variables
     ControllerBarang ctBarang;
+    ControllerHistori ctHistori;
 
     public JTable getTabelData() {
         return tabelBarang;
