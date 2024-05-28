@@ -121,6 +121,16 @@ public class ControllerBarang {
         JOptionPane.showMessageDialog(null, "Data Berhasil Dimasukkan kedalam Database!");
     }
     
+    public void resetInsert(){
+        frmInsert.getFieldKodeBarang().setText("");
+        frmInsert.getFieldNamaBarang().setText("");
+        frmInsert.getFieldSatuan().setText("");
+        frmInsert.getFieldHarga().setText("");
+        frmInsert.getFieldStok().setText("");
+    }
+    
+    
+    //select and update
     public void isiFieldSelect (int row){
         frmSelect.getFieldKodeBarang().setEnabled(false);
         frmSelect.getFieldKodeBarang().setText(lstBarang.get(row).getKodeBarang());

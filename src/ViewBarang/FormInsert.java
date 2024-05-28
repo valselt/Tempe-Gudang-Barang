@@ -6,6 +6,8 @@ package ViewBarang;
 
 import Controller.ControllerBarang;
 import Controller.ControllerHistori;
+import Controller.ControllerLoginRegister;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -21,6 +23,7 @@ public class FormInsert extends javax.swing.JPanel {
         initComponents();
         ctBarang = new ControllerBarang(this);
         ctHistori = new ControllerHistori(this);
+        ctLoginRegister = new ControllerLoginRegister(this);
         
         
     }
@@ -168,8 +171,17 @@ public class FormInsert extends javax.swing.JPanel {
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         //ketika tombol simpan di klik
-        ctBarang.insert();
-        ctHistori.historiInsert();
+        String level = ctLoginRegister.isItAdmin();
+        
+        if ("user".equals(level)){
+            JOptionPane.showMessageDialog(null, "Level Pengguna Yang Anda Miliki Tidak Berhak Untuk Mengubah Data!");
+            ctBarang.resetInsert();
+        } else if ("admin".equals(level)){
+            ctBarang.insert();
+            ctHistori.historiInsert();
+            ctBarang.resetInsert();
+        }
+        
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
 
@@ -209,6 +221,7 @@ public class FormInsert extends javax.swing.JPanel {
     
     ControllerBarang ctBarang;
     ControllerHistori ctHistori;
+    ControllerLoginRegister ctLoginRegister;
     
 
 }

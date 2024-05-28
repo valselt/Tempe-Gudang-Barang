@@ -6,7 +6,9 @@ package ViewBarang;
 
 import Controller.ControllerBarang;
 import Controller.ControllerHistori;
+import Controller.ControllerLoginRegister;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -25,6 +27,7 @@ public class FormMenu extends javax.swing.JPanel {
         ctBarang.isiTable();
         ctBarang.isiComboboxNamaBarang(comboboxNamaBarang);
         ctHistori = new ControllerHistori(this);
+        ctLoginRegister = new ControllerLoginRegister(this);
         
     }
 
@@ -149,10 +152,19 @@ public class FormMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonTambahStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahStokActionPerformed
-        ctBarang.stokAdd();
-        ctHistori.historiTambahStok();
-        ctBarang.isiTable();
-        ctBarang.resetFieldStok();
+        String level = ctLoginRegister.isItAdmin();
+        
+        if ("user".equals(level)){
+            JOptionPane.showMessageDialog(null, "Level Pengguna Yang Anda Miliki Tidak Berhak Untuk Mengubah Data!");
+            ctBarang.resetFieldStok();
+        } else if ("admin".equals(level)){
+            ctBarang.stokAdd();
+            ctHistori.historiTambahStok();
+            ctBarang.isiTable();
+            ctBarang.resetFieldStok();
+        }
+        
+        
     }//GEN-LAST:event_buttonTambahStokActionPerformed
 
     private void comboboxNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxNamaBarangActionPerformed
@@ -160,10 +172,19 @@ public class FormMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_comboboxNamaBarangActionPerformed
 
     private void buttonKurangiStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKurangiStokActionPerformed
-        ctBarang.stokReduce();
-        ctHistori.historiKurangiStok();
-        ctBarang.isiTable();
-        ctBarang.resetFieldStok();
+        String level = ctLoginRegister.isItAdmin();
+        
+        if ("user".equals(level)){
+            JOptionPane.showMessageDialog(null, "Level Pengguna Yang Anda Miliki Tidak Berhak Untuk Mengubah Data!");
+            ctBarang.resetFieldStok();
+        } else if ("admin".equals(level)){
+            ctBarang.stokReduce();
+            ctHistori.historiKurangiStok();
+            ctBarang.isiTable();
+            ctBarang.resetFieldStok();
+        }
+        
+        
     }//GEN-LAST:event_buttonKurangiStokActionPerformed
 
 
@@ -182,6 +203,7 @@ public class FormMenu extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     ControllerBarang ctBarang;
     ControllerHistori ctHistori;
+    ControllerLoginRegister ctLoginRegister;
 
     public JTable getTabelData() {
         return tabelBarang;

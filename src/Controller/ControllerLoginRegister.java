@@ -8,6 +8,10 @@ import DAO.DAOLoginRegister;
 import DAOInterface.InterfaceDAOLoginRegister;
 import Model.LoginRegister;
 import ViewBarang.Dashboard;
+import ViewBarang.FormDelete;
+import ViewBarang.FormInsert;
+import ViewBarang.FormMenu;
+import ViewBarang.FormSelectAndUpdate;
 import ViewLoginRegister.FormLogin;
 import ViewLoginRegister.FormRegister;
 import ViewLoginRegister.FormUser;
@@ -31,7 +35,22 @@ public class ControllerLoginRegister {
         this.frmUser = frmUser;
         ifaceLoginRegister = new DAOLoginRegister();
     }
-    
+        public ControllerLoginRegister(FormInsert frmInsert){
+        this.frmInsert = frmInsert;
+        ifaceLoginRegister = new DAOLoginRegister();
+    }
+    public ControllerLoginRegister(FormDelete frmDelete){
+        this.frmDelete = frmDelete;
+        ifaceLoginRegister = new DAOLoginRegister();
+    }
+    public ControllerLoginRegister(FormMenu frmMenu){
+        this.frmMenu = frmMenu;
+        ifaceLoginRegister = new DAOLoginRegister();
+    }
+    public ControllerLoginRegister(FormSelectAndUpdate frmSelectAndUpdate){
+        this.frmSelectAndUpdate = frmSelectAndUpdate;
+        ifaceLoginRegister = new DAOLoginRegister();
+    }
     //register
     void bersihField(){
         frmRegister.getFieldIdPengguna().setText("");
@@ -119,10 +138,19 @@ public class ControllerLoginRegister {
         frmUser.getFieldLevel().setText(ifaceLoginRegister.user().getLevel());
     }
     
+    public String isItAdmin(){
+        String level = ifaceLoginRegister.user().getLevel();
+        return level;
+    }
+    
     
     FormLogin frmLogin;
     FormRegister frmRegister;
+    FormInsert frmInsert;
     FormUser frmUser;
+    FormDelete frmDelete;
+    FormSelectAndUpdate frmSelectAndUpdate;
+    FormMenu frmMenu;
     InterfaceDAOLoginRegister ifaceLoginRegister;
 
     

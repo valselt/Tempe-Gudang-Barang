@@ -75,15 +75,15 @@ public class DAOHistori implements InterfaceDAOHistori{
             statement = con.prepareStatement(histori);
             
             statement.setString(1, hstr.getKodeHistoriBaru());
-            System.out.println("Kode Histori : "+ hstr.getKodeHistoriBaru());
+            
             statement.setString(2, hstr.getKodeBarang());
-            System.out.println("Kode Barang : "+ hstr.getKodeBarang());
+            
             statement.setString(3, hstr.getStatus());
-            System.out.println("Status : "+ hstr.getStatus());
+            
             statement.setString(4, hstr.getBanyak());
-            System.out.println("Banyak : "+ hstr.getBanyak());
+            
             statement.setString(5, hstr.getIdPengguna());
-            System.out.println("ID : "+ hstr.getIdPengguna());
+            
             statement.execute();
         }
         catch(SQLException e){

@@ -6,6 +6,8 @@ package ViewBarang;
 
 import Controller.ControllerBarang;
 import Controller.ControllerHistori;
+import Controller.ControllerLoginRegister;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -22,6 +24,7 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
         initComponents();
         ctBarang = new ControllerBarang(this);
         ctHistori = new ControllerHistori(this);
+        ctLoginRegister = new ControllerLoginRegister(this);
         ctBarang.isiTableSelect();
         ctBarang.resetSelect();
         
@@ -194,10 +197,18 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
     }//GEN-LAST:event_tabelBarangMouseClicked
 
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
-        ctBarang.updateSelect();
-        ctHistori.historiUpdate();
-        ctBarang.isiTableSelect();
-        ctBarang.resetSelect();
+        String level = ctLoginRegister.isItAdmin();
+        
+        if ("user".equals(level)){
+            JOptionPane.showMessageDialog(null, "Level Pengguna Yang Anda Miliki Tidak Berhak Untuk Mengubah Data!");
+            ctBarang.resetSelect();
+        } else if ("admin".equals(level)){
+            ctBarang.updateSelect();
+            ctHistori.historiUpdate();
+            ctBarang.isiTableSelect();
+            ctBarang.resetSelect();
+        }
+        
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
@@ -246,4 +257,5 @@ public class FormSelectAndUpdate extends javax.swing.JPanel {
     
     ControllerBarang ctBarang;
     ControllerHistori ctHistori;
+    ControllerLoginRegister ctLoginRegister;
 }
