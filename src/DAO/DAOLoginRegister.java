@@ -46,6 +46,7 @@ public class DAOLoginRegister implements InterfaceDAOLoginRegister {
             statement.setInt(6, lr.getLogin_condition());
             statement.execute();
         }
+        
         catch(SQLException e){
             System.out.println("Gagal Register!");
         }

@@ -61,7 +61,7 @@ public class ControllerHistori {
     }
     public void generateNewKodeHistori(){
         String prevKode = ifaceHistori.getLastKodeHistori();
-        System.out.println("Last Kode : "+ prevKode);
+        
         String data = prevKode.replace("HSTR", "");
         int num = Integer.parseInt(data);
         num = num+1;
@@ -90,7 +90,7 @@ public class ControllerHistori {
         Histori hstr = new Histori();
                 
         generateNewKodeHistori();
-        System.out.println("Generate New Kode Berhasil : "+ kodeBaru);
+        
         hstr.setKodeHistoriBaru(kodeBaru);
         hstr.setKodeBarang(frmDelete.getComboKodeBarang().getSelectedItem().toString());
         hstr.setStatus("KELUAR");

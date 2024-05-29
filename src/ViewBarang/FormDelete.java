@@ -6,8 +6,10 @@ package ViewBarang;
 
 import Controller.ControllerBarang;
 import Controller.ControllerHistori;
+import Controller.ControllerLoginRegister;
 import Model.TabelModelBarang;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -23,6 +25,7 @@ public class FormDelete extends javax.swing.JPanel {
         initComponents();
         ctBarang = new ControllerBarang(this);
         ctHistori = new ControllerHistori(this);
+        ctLoginRegister = new ControllerLoginRegister(this);
         ctBarang.isiComboboxKodeBarang(comboboxKodeBarang);
     }
 
@@ -115,11 +118,17 @@ public class FormDelete extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+        String level = ctLoginRegister.isItAdmin();
         
-        ctBarang.deleteBarang(); 
-        ctHistori.historiDelete();// Memanggil metode penghapusan barang dari Controller
+        if ("user".equals(level)){
+            JOptionPane.showMessageDialog(null, "Level Pengguna Yang Anda Miliki Tidak Berhak Untuk Mengubah Data!");
+            
+        } else if ("admin".equals(level)){
+            ctBarang.deleteBarang(); 
+            ctHistori.historiDelete();
+        }
     }//GEN-LAST:event_buttonHapusActionPerformed
-
+  
     private void comboboxKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxKodeBarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboboxKodeBarangActionPerformed
@@ -141,5 +150,6 @@ public class FormDelete extends javax.swing.JPanel {
     
     ControllerBarang ctBarang;
     ControllerHistori ctHistori;
+    ControllerLoginRegister ctLoginRegister;
 
 }
